@@ -1,24 +1,24 @@
-@font-face 
+@font-face
   font-family: 'skia'
   src: url('../plugin/ufonts.com_skia.ttf') format("ttf")
-
-
-
 
 html,body
   margin: 0
   padding: 0
-  
+  width: 100vw
+  height: 100vh
+  overflow: hidden
+
 html,body,*
   box-sizing: border-box
 
 .scroll-wrapper
   width: 100vw
   height: 100vh
-  overflow-y: hidden
-.scroll-content
-  display: flex
-  width: max-content
+  overflow: hidden
+  position: fixed
+  top:0
+  left:0
 .bg
   width: 167vh
   min-height: 100vh
@@ -48,66 +48,68 @@ html,body,*
     img
       display: block
       width: 100%
-    
+
 .bg-col
-  display: grid
+  display: flex
   width: 110vw
   height: 100vh
-  grid-template-columns: repeat(auto-fill, 16.7vh)
-  top:0
-  left:0
+  // grid-template-columns: repeat(auto-fill, 16.7vh)
+  top: 0
+  left: 0
   div
+    flex-shrink: 0
+    width: 16.7vh
     border-right: solid 1px rgba(#000,.1)
 .bg-row
   position: absolute
-  top:0
-  left:0
+  top: 0
+  left: 0
   width: 110vw
   height: 100vh
   div
     width: 100%
     height: 16.7vh
     border-bottom: solid 1px rgba(#000,.1)
+.scroll-content
+  display: flex
+  width: max-content
 .section1
   width: 100vw
   height: 100vh
-  display: grid
-  grid-template-columns: repeat(auto-fill, 16.7vh)
-  grid-template-rows: repeat(auto-fill, 16.7vh)
-  position: relative
+  .content
+    width: 100%
+    height: 100%
+    display: flex
+    position: relative
+    padding: 20px
   .menu
-    grid-column: -1 /span 1
-    position: absolute
-    top: 20px
-    right: 0
     font-size: 20px
+    margin-left: 30px
     li
       writing-mode: vertical-rl
       list-style: none
-      margin-inline: 20px
+      margin-bottom: 20px
+  
+  .welcome
+    max-height: 90vh
+    max-width: 5vw
+  img.main
+    position: absolute
+    top:45%
+    left:50%
+    transform: translate(-50%,-50%)
+    width: 50vw
+
   .text1
     writing-mode: vertical-rl
-    height: min(35vh,450px)
-    grid-column: -11/span 8
-    justify-self: end
-    padding-top: 40px
-    font-size: 20px
-  img.main
-    width: 40vw
-    position: absolute
-    top: 50%
-    left: 50%
-    transform: translate(-50%,-50%)
-  img.welcome
-    grid-column: 1/span 2
-    display: block
-    max-height: 90vh
+    margin-left: auto
+    height: 30vh
   .text2
+    align-self: end
     writing-mode: vertical-rl
-    grid-column: 2/span 3
-    font-size: 20px
-    position: absolute
-    bottom: 0
+    padding: 20px
+    max-height: 40vh
+
 
 .section2
   width: 178vh
@@ -137,7 +139,6 @@ html,body,*
       height: 50vh
       display: block
       width: 100%
-    
 
 .section3
   width: 167vh
@@ -152,15 +153,19 @@ html,body,*
     padding-right: 3vw
     border-bottom: solid 1px #000
     li
-      width: 10vw
+      width: 16vh
       padding: 10px
   .content
     display: flex
+    flex-grow: 1
   .left
     border-right: solid 1px #000
     width: min-content
     height: 100%
     padding: 20px 10px
+    @media screen and (max-height: 800px)
+      display: flex
+
     .main
       font-family: "Kaisei HarunoUmi", serif
       font-weight: 400
@@ -174,12 +179,14 @@ html,body,*
       list-style: none
       gap: 10px
       margin-top: 35px
+      align-self: start
       li
         width: min-content
         font-weight: bold
         padding: 15px 10px
         background: rgba(0,0,0,0.2)
         border-radius: 30px
+        height: min-content
   .right
     display: flex
     .text-wrap
