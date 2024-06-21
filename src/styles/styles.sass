@@ -14,9 +14,10 @@ html,body,*
 
 .scroll-wrapper
   width: 100vw
-  height: 100vh
-  overflow-y: hidden
+  // height: 100vh
+  overflow-x: hidden
 .scroll-content
+  height: 100vh
   display: flex
   width: max-content
 .bg
@@ -141,7 +142,6 @@ html,body,*
 
 .section3
   width: 100vw
-  height: 100vw
   display: flex
   flex-direction: column
   position: relative
@@ -206,3 +206,35 @@ html,body,*
       position: absolute
       top: 42%
       transform: translateY(-50%)
+.scroll-content
+  width: 500vw
+  height: 100vh
+  position: relative
+  display: flex
+  font-family: 'skia'
+  .box-section
+    width: 100%
+    display: grid
+    place-content: center
+    font-size: 60px
+    font-weight: 700
+    color: #fff
+    &:first-child
+      background: rgba(0,0,0,.4)
+    &:nth-child(2)
+      background: rgba(0,60,0,.4)
+    &:nth-child(3)
+      background: rgba(60,60,0,.4)
+    &:nth-child(4)
+      background: rgba(60,60,190,.4)
+    &:nth-child(5)
+      background: rgba(60,180,120,.4)
+
+.section5
+  height: 500px
+  display: grid
+  place-content: center
+  font-size: 60px
+  font-weight: 700
+  // background:  rgba(60,210,190,.4)
+
